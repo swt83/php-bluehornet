@@ -8,14 +8,18 @@ Normal install via Composer.
 
 ## Usage
 
+Call the ``run()`` method and pass the api key, the api secret, the method name, and an array of arguments:
+
 ```php
 use Travis\BlueHornet;
 
 $key = 'yourapikey';
 $secret = 'yourapisecret';
 $response = BlueHornet::run($key, $secret, 'legacy.retrieve_active', [
-	'return_count' => 1,
+	'bounce_status' => 'valid',
+	'max' => 100,
+	'offset' => 0
 ]);
 ```
 
-Call the ``run()`` method and pass the api key, the api secret, the method name, and an array of arguments.
+This will return the first 100 emails in your list.
