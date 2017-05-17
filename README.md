@@ -15,6 +15,7 @@ use Travis\BlueHornet;
 
 $key = 'yourapikey';
 $secret = 'yourapisecret';
+
 $response = BlueHornet::run($key, $secret, 'legacy.retrieve_active', [
 	'bounce_status' => 'valid',
 	'max' => 100,
@@ -22,4 +23,4 @@ $response = BlueHornet::run($key, $secret, 'legacy.retrieve_active', [
 ]);
 ```
 
-This will return the first 100 emails in your list.
+This will return the first 100 emails in your list.  See the [API Guide](http://www.bluehornet.com/api/guide/) for additional methods.
