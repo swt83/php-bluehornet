@@ -13,9 +13,10 @@ class BlueHornet
      * @param   string  $secret
      * @param   string  $method
      * @param   array   $arguments
+     * @param   int     $timeout
      * @return  array
      */
-    public static function run($key, $secret, $method, $arguments = [])
+    public static function run($key, $secret, $method, $arguments = [], $timeout = 30)
     {
         // set endpoint
         $url = 'https://echo.bluehornet.com/api/xmlrpc/index.php';
@@ -47,7 +48,7 @@ class BlueHornet
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'Content-Type: application/x-www-form-urlencoded',
         ]);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
